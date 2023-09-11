@@ -1,0 +1,13 @@
+.page-footer {
+  font-size: 12px;
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+
+  &__created-by {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    min-width: 225px;
+  }
+}

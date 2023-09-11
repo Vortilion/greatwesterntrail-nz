@@ -1,0 +1,59 @@
+.home-component {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.is-mobile {
+  .sidenav-container {
+    flex: 1 0 auto;
+  }
+}
+
+.sidenav-container {
+  flex: 1;
+}
+
+.options-list {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+
+  &__option {
+    padding: 15px;
+  }
+}
+
+.sidenav {
+  &__inner {
+    padding: 15px;
+  }
+}
+
+.divider {
+  margin-bottom: 15px;
+}
+
+.sidenav-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.page-content {
+  flex: 1;
+  font-weight: 400;
+  padding: 20px 50px;
+}
+
+.orange {
+  color: #ff6f00;
+}
+
+.blue {
+  color: #1976d2;
+}

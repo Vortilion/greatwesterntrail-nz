@@ -1,0 +1,84 @@
+<ng-container *transloco="let t">
+  <div class="home-component" [class.is-mobile]="isXSmall">
+    <app-page-header
+      [isXSmall]="isXSmall"
+      [hideSideNavButton]="true"
+      [sidebarHandle]="sidenav"
+    >
+    </app-page-header>
+
+    <mat-sidenav-container
+      class="sidenav-container"
+      [style.marginTop.px]="isXSmall ? 56 : 0"
+    >
+      <mat-sidenav
+        class="sidenav"
+        #sidenav
+        [mode]="isXSmall ? 'over' : 'side'"
+        [fixedInViewport]="isXSmall"
+        fixedTopGap="56"
+        [opened]="false"
+      >
+        <div class="sidenav__inner">
+          <h2>{{ t('options-label') }}:</h2>
+          <mat-divider class="divider"></mat-divider>
+        </div>
+      </mat-sidenav>
+
+      <mat-sidenav-content>
+        <div class="sidenav-content">
+          <div class="page-content">
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="randomizeSetup()"
+            >
+              {{ t('btn-setup-label') }}
+            </button>
+
+            <mat-grid-list
+              [cols]="isMax768 ? 1 : 3"
+              rowHeight="300px"
+              gutterSize="5px"
+            >
+              <mat-grid-tile *ngIf="randomNeutralBuildings.length > 0">
+                <mat-grid-tile-header>
+                  <h3>{{ t('neutral-buildings-label') }}:</h3>
+                </mat-grid-tile-header>
+                <ul>
+                  <li *ngFor="let neutralBuilding of randomNeutralBuildings">
+                    <span>{{ neutralBuilding.title }}</span>
+                  </li>
+                </ul>
+              </mat-grid-tile>
+              <mat-grid-tile
+                *ngIf="randomHarborMasters && randomHarborMasters.length > 0"
+              >
+                <mat-grid-tile-header>
+                  <h3>{{ t('harbor-masters-label') }}:</h3>
+                </mat-grid-tile-header>
+                <ul>
+                  <li *ngFor="let randomHarborMaster of randomHarborMasters">
+                    <span>{{ randomHarborMaster.sides[0].image }}</span>
+                  </li>
+                </ul>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <mat-grid-tile-header *ngIf="randomNeutralBuildings.length > 0">
+                  <h3>{{ t('neutral-buildings-label') }}:</h3>
+                </mat-grid-tile-header>
+                <ul>
+                  <li *ngFor="let neutralBuilding of randomNeutralBuildings">
+                    <span>{{ neutralBuilding.title }}</span>
+                  </li>
+                </ul>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>
+        </div>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+
+    <app-page-footer />
+  </div>
+</ng-container>

@@ -1,0 +1,13 @@
+{
+  "app-title": "Great Western Trail Neuseeland Setup Randomizer",
+  "neutral-buildings-label": "Reihenfolge Neutrale Gebäude",
+  "harbor-masters-label": "Hafenmeister",
+  "creator-prefix": "entwickelt von",
+  "options-label": "Optionen",
+  "btn-setup-label": "Setup",
+  "en-language-label": "EN",
+  "de-language-label": "DE",
+  "messages": {
+    "update-available": "Update verfügbar"
+  }
+}

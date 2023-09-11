@@ -1,0 +1,23 @@
+<div class="page-header">
+  <mat-toolbar
+    color="primary"
+    class="main-toolbar toolbar"
+    [class.is-mobile]="isXSmall"
+  >
+    <button
+      *ngIf="!hideSideNavButton"
+      type="button"
+      [hidden]="!isXSmall"
+      mat-icon-button
+      (click)="sidebarHandle.toggle()"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="app-name" [style.fontSize.px]="isXSmall ? 18 : 24">
+      {{ 'app-title' | transloco }}
+    </h1>
+
+    <span class="spacer"></span>
+    <app-language-selector></app-language-selector>
+  </mat-toolbar>
+</div>
