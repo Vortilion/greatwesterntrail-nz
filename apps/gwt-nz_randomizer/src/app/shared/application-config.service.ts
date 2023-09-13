@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { Tile } from '../models/tile.model';
+import { Tile, TileSide } from '../models/tile.model';
 
 @Injectable({
   providedIn: 'root',
@@ -191,7 +191,7 @@ export class ApplicationConfigService {
       sides: [
         {
           title: 'front',
-          image: 'src/assets/img/harbormaster-01.jpg',
+          image: 'assets/img/harbormaster-01.png',
         },
       ],
     },
@@ -200,7 +200,7 @@ export class ApplicationConfigService {
       sides: [
         {
           title: 'front',
-          image: 'src/assets/img/harbormaster-02.jpg',
+          image: 'assets/img/harbormaster-02.png',
         },
       ],
     },
@@ -209,7 +209,7 @@ export class ApplicationConfigService {
       sides: [
         {
           title: 'front',
-          image: 'src/assets/img/harbormaster-03.jpg',
+          image: 'assets/img/harbormaster-03.png',
         },
       ],
     },
@@ -218,7 +218,7 @@ export class ApplicationConfigService {
       sides: [
         {
           title: 'front',
-          image: 'src/assets/img/harbormaster-04.jpg',
+          image: 'assets/img/harbormaster-04.png',
         },
       ],
     },
@@ -227,7 +227,7 @@ export class ApplicationConfigService {
       sides: [
         {
           title: 'front',
-          image: 'src/assets/img/harbormaster-05.jpg',
+          image: 'assets/img/harbormaster-05.png',
         },
       ],
     },
@@ -236,7 +236,7 @@ export class ApplicationConfigService {
       sides: [
         {
           title: 'front',
-          image: 'src/assets/img/harbormaster-06.jpg',
+          image: 'assets/img/harbormaster-06.png',
         },
       ],
     },
@@ -245,7 +245,7 @@ export class ApplicationConfigService {
       sides: [
         {
           title: 'front',
-          image: 'src/assets/img/harbormaster-07.jpg',
+          image: 'assets/img/harbormaster-07.png',
         },
       ],
     },
@@ -254,7 +254,7 @@ export class ApplicationConfigService {
       sides: [
         {
           title: 'front',
-          image: 'src/assets/img/harbormaster-08.jpg',
+          image: 'assets/img/harbormaster-08.png',
         },
       ],
     },
@@ -273,6 +273,33 @@ export class ApplicationConfigService {
     }
 
     return selection;
+  }
+
+  getRandomDeckbuildingModules(): string[] {
+    let selection: string[] = [];
+    let shuffledDeckbuildingModules = this.shuffleArray(
+      this.deckBuildingModules,
+    );
+
+    for (let i = 0; i < 4; i++) {
+      selection.push(shuffledDeckbuildingModules.pop());
+    }
+
+    return selection.sort((a, b) => {
+      return parseInt(a) - parseInt(b);
+    });
+  }
+
+  getRandomPlayerBuildings(): Tile[] {
+    let playerBuildings = [...this.playerBuildings];
+
+    playerBuildings.forEach((playerBuilding) => {
+      playerBuilding.sides = playerBuilding.sides.splice(
+        Math.random() * playerBuilding.sides.length,
+      );
+    });
+
+    return playerBuildings;
   }
 
   private shuffleArray(inArray: any[]): any[] {

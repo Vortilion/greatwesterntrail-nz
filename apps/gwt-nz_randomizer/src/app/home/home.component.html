@@ -27,15 +27,16 @@
 
       <mat-sidenav-content>
         <div class="sidenav-content">
-          <div class="page-content">
-            <button
-              mat-raised-button
-              color="primary"
-              (click)="randomizeSetup()"
-            >
-              {{ t('btn-setup-label') }}
-            </button>
-
+          <div class="flex-1 px-12 py-5">
+            <div class="mb-4">
+              <button
+                mat-raised-button
+                color="primary"
+                (click)="randomizeSetup()"
+              >
+                {{ t('btn-setup-label') }}
+              </button>
+            </div>
             <mat-grid-list
               [cols]="isMax768 ? 1 : 3"
               rowHeight="300px"
@@ -45,8 +46,11 @@
                 <mat-grid-tile-header>
                   <h3>{{ t('neutral-buildings-label') }}:</h3>
                 </mat-grid-tile-header>
-                <ul>
-                  <li *ngFor="let neutralBuilding of randomNeutralBuildings">
+                <ul class="flex">
+                  <li
+                    *ngFor="let neutralBuilding of randomNeutralBuildings"
+                    class="px-2"
+                  >
                     <span>{{ neutralBuilding.title }}</span>
                   </li>
                 </ul>
@@ -57,28 +61,122 @@
                 <mat-grid-tile-header>
                   <h3>{{ t('harbor-masters-label') }}:</h3>
                 </mat-grid-tile-header>
-                <ul>
-                  <li *ngFor="let randomHarborMaster of randomHarborMasters">
-                    <span>{{ randomHarborMaster.sides[0].image }}</span>
+                <div class="flex">
+                  <div *ngFor="let randomHarborMaster of randomHarborMasters">
+                    <img
+                      class="px-4"
+                      [src]="randomHarborMaster.sides[0].image"
+                      alt="Harbor Master"
+                    />
+                  </div>
+                </div>
+              </mat-grid-tile>
+              <mat-grid-tile *ngIf="randomDeckbuildingModules.length > 0">
+                <mat-grid-tile-header>
+                  <h3>{{ t('deckbuilding-modules-label') }}:</h3>
+                </mat-grid-tile-header>
+                <ul class="flex">
+                  <li
+                    *ngFor="
+                      let randomDeckbuildingModule of randomDeckbuildingModules
+                    "
+                    class="px-2"
+                  >
+                    <span>{{ randomDeckbuildingModule }}</span>
                   </li>
                 </ul>
               </mat-grid-tile>
               <mat-grid-tile>
-                <mat-grid-tile-header *ngIf="randomNeutralBuildings.length > 0">
-                  <h3>{{ t('neutral-buildings-label') }}:</h3>
+                <mat-grid-tile-header>
+                  <h3>{{ t('player-buildings-label') }}:</h3>
                 </mat-grid-tile-header>
-                <ul>
-                  <li *ngFor="let neutralBuilding of randomNeutralBuildings">
-                    <span>{{ neutralBuilding.title }}</span>
+                <ul class="flex">
+                  <li
+                    *ngFor="let randomPlayerBuilding of randomPlayerBuildings"
+                    class="px-2"
+                  >
+                    <span
+                      >{{ randomPlayerBuilding.title }}
+                      {{ randomPlayerBuilding.sides[0].title }}
+                    </span>
                   </li>
                 </ul>
               </mat-grid-tile>
             </mat-grid-list>
+
+            <mat-card>
+              <mat-card-header>{{
+                t('further-setup-steps-label')
+              }}</mat-card-header>
+              <mat-card-content>
+                <mat-list role="list">
+                  <mat-list-item role="listitem"
+                    >1. {{ t('further-steps-step1') }}</mat-list-item
+                  >
+                  <mat-list-item role="listitem">
+                    <div matListItemTitle>
+                      2. {{ t('further-steps-step2') }}
+                    </div>
+                    <div matListItemLine>{{ t('further-steps-step21') }}</div>
+                    <div matListItemLine>{{ t('further-steps-step22') }}</div>
+                    <div matListItemLine>{{ t('further-steps-step23') }}</div>
+                  </mat-list-item>
+                  <mat-list-item role="listitem"
+                    >3. {{ t('further-steps-step3') }}</mat-list-item
+                  >
+                  <mat-list-item role="listitem"
+                    >4. {{ t('further-steps-step4') }}</mat-list-item
+                  >
+                  <mat-list-item role="listitem">
+                    <div matListItemTitle>
+                      5. {{ t('further-steps-step5') }}
+                    </div>
+                    <div matListItemLine>{{ t('further-steps-step51') }}</div>
+                    <div matListItemLine>{{ t('further-steps-step52') }}</div>
+                    <div matListItemLine>{{ t('further-steps-step53') }}</div>
+                  </mat-list-item>
+                  <mat-list-item role="listitem"
+                    >6. {{ t('further-steps-step6') }}</mat-list-item
+                  >
+                  <mat-list-item role="listitem"
+                    >7. {{ t('further-steps-step7') }}</mat-list-item
+                  >
+                  <mat-list-item role="listitem">
+                    <div matListItemTitle>
+                      8. {{ t('further-steps-step8') }}
+                    </div>
+                    <div matListItemLine>{{ t('further-steps-step81') }}</div>
+                    <div matListItemLine>{{ t('further-steps-step82') }}</div>
+                    <div matListItemLine>{{ t('further-steps-step83') }}</div>
+                  </mat-list-item>
+                  <mat-list-item role="listitem">
+                    <div matListItemTitle>
+                      9. {{ t('further-steps-step9') }}
+                    </div>
+                    <div matListItemLine>{{ t('further-steps-step91') }}</div>
+                    <div matListItemLine>{{ t('further-steps-step92') }}</div>
+                    <div matListItemLine>{{ t('further-steps-step93') }}</div>
+                    <div matListItemLine>{{ t('further-steps-step94') }}</div>
+                  </mat-list-item>
+                  <mat-list-item role="listitem"
+                    >10. {{ t('further-steps-step10') }}</mat-list-item
+                  >
+                  <mat-list-item role="listitem">
+                    <div matListItemTitle>
+                      11. {{ t('further-steps-step11') }}
+                    </div>
+                    <div matListItemLine>{{ t('further-steps-step111') }}</div>
+                    <div matListItemLine>{{ t('further-steps-step112') }}</div>
+                    <div matListItemLine>{{ t('further-steps-step113') }}</div>
+                    <div matListItemLine>{{ t('further-steps-step114') }}</div>
+                  </mat-list-item>
+                </mat-list>
+              </mat-card-content>
+            </mat-card>
           </div>
         </div>
       </mat-sidenav-content>
     </mat-sidenav-container>
-
     <app-page-footer />
   </div>
 </ng-container>

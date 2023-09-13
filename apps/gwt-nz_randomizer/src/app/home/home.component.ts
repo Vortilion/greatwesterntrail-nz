@@ -1,12 +1,7 @@
-import {
-  BreakpointObserver,
-  Breakpoints,
-  MediaMatcher,
-} from '@angular/cdk/layout';
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { StorageMap } from '@ngx-pwa/local-storage';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Component, OnInit } from '@angular/core';
 import { ApplicationConfigService } from '../shared/application-config.service';
-import { Tile } from '../models/tile.model';
+import { Tile, TileSide } from '../models/tile.model';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +10,9 @@ import { Tile } from '../models/tile.model';
 })
 export class HomeComponent implements OnInit {
   randomNeutralBuildings: Tile[];
+  randomPlayerBuildings: Tile[];
   randomHarborMasters: Tile[];
+  randomDeckbuildingModules: string[];
   isXSmall: boolean;
   isMax768: boolean;
 
@@ -41,10 +38,7 @@ export class HomeComponent implements OnInit {
       }
     });
 
-    this.randomNeutralBuildings =
-      this.applicationConfigService.getRandomNeutralBuildingOrder();
-    this.randomHarborMasters =
-      this.applicationConfigService.getRandomHarborMasters();
+    this.randomizeSetup();
   }
 
   randomizeSetup() {
@@ -53,7 +47,11 @@ export class HomeComponent implements OnInit {
 
     this.randomHarborMasters =
       this.applicationConfigService.getRandomHarborMasters();
-  }
 
-  ngOnDestroy(): void {}
+    this.randomDeckbuildingModules =
+      this.applicationConfigService.getRandomDeckbuildingModules();
+
+    this.randomPlayerBuildings =
+      this.applicationConfigService.getRandomPlayerBuildings();
+  }
 }
