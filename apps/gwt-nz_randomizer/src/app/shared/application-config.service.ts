@@ -291,11 +291,12 @@ export class ApplicationConfigService {
   }
 
   getRandomPlayerBuildings(): Tile[] {
-    let playerBuildings = [...this.playerBuildings];
+    let playerBuildings = JSON.parse(JSON.stringify(this.playerBuildings));
 
-    playerBuildings.forEach((playerBuilding) => {
-      playerBuilding.sides = playerBuilding.sides.splice(
-        Math.random() * playerBuilding.sides.length,
+    playerBuildings.forEach((playerBuilding: Tile) => {
+      playerBuilding.sides.splice(
+        Math.floor(Math.random() * playerBuilding.sides.length),
+        1,
       );
     });
 

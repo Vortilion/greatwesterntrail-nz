@@ -1,7 +1,7 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { ApplicationConfigService } from '../shared/application-config.service';
-import { Tile, TileSide } from '../models/tile.model';
+import { Tile } from '../models/tile.model';
 
 @Component({
   selector: 'app-home',
