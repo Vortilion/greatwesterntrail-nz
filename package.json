@@ -5,8 +5,8 @@
     "ng": "ng",
     "start": "nx serve gwt-nz_randomizer",
     "build": "nx build gwt-nz_randomizer",
-    "build:gh-pages": "nx build --base-href \"https://vortilion.github.io/gwt-nz/\"",
-    "deploy:gh-pages": "npx angular-cli-ghpages --dir=dist/gwt-nz_randomizer",
+    "build:gh-pages": "nx build gwt-nz_randomizer --base-href \"https://vortilion.github.io/gwt-nz/\"",
+    "deploy:gh-pages": "npx angular-cli-ghpages --dir=dist/apps/gwt-nz_randomizer",
     "build:deploy:gh-pages": "npm run build:gh-pages && npm run deploy:gh-pages",
     "watch": "nx build gwt-nz_randomizer --watch --configuration development",
     "test": "nx test gwt-nz_randomizer"
