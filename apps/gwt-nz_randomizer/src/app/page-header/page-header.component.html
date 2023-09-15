@@ -2,18 +2,20 @@
   <mat-toolbar
     color="primary"
     class="main-toolbar toolbar"
-    [class.is-mobile]="isXSmall"
+    [class.is-mobile]="isMax768"
   >
     <button
-      *ngIf="!hideSideNavButton"
       type="button"
-      [hidden]="!isXSmall"
+      [hidden]="!isMax768"
       mat-icon-button
       (click)="sidebarHandle.toggle()"
     >
       <mat-icon>menu</mat-icon>
     </button>
-    <h1 class="app-name" [style.fontSize.px]="isXSmall ? 18 : 24">
+    <h1
+      class="app-name"
+      [style.fontSize.px]="isXXSmall ? 12 : isXSmall ? 14 : 18"
+    >
       {{ 'app-title' | transloco }}
     </h1>
 

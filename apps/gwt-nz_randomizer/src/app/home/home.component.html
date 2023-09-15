@@ -1,27 +1,41 @@
 <ng-container *transloco="let t">
-  <div class="home-component" [class.is-mobile]="isXSmall">
-    <app-page-header
-      [isXSmall]="isXSmall"
-      [hideSideNavButton]="true"
-      [sidebarHandle]="sidenav"
-    >
-    </app-page-header>
+  <div
+    class="home-component flex flex-col min-w-fit"
+    [class.is-mobile]="isXSmall"
+  >
+    <app-page-header [sidebarHandle]="sidenav"> </app-page-header>
 
     <mat-sidenav-container
-      class="sidenav-container"
-      [style.marginTop.px]="isXSmall ? 56 : 0"
+      class="sidenav-container flex-1"
+      [style.marginTop.px]="isMax768 ? 56 : 0"
     >
       <mat-sidenav
         class="sidenav"
         #sidenav
         [mode]="isXSmall ? 'over' : 'side'"
-        [fixedInViewport]="isXSmall"
+        [fixedInViewport]="isMax768"
         fixedTopGap="56"
-        [opened]="false"
+        [opened]="isMax768 ? 'false' : 'opened'"
       >
         <div class="sidenav__inner">
           <h2>{{ t('options-label') }}:</h2>
           <mat-divider class="divider"></mat-divider>
+
+          <h3>{{ t('player-count-label') }}:</h3>
+          <mat-form-field appearance="fill">
+            <mat-label>{{ t('player-count-select-label') }}</mat-label>
+            <mat-select
+              [value]="playerCount"
+              (selectionChange)="onPlayerCountChange($event)"
+            >
+              <mat-option
+                *ngFor="let playerCount of playerCountList"
+                [value]="playerCount.value"
+              >
+                {{ playerCount.label }} <span>{{ t('players-label') }}</span>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
         </div>
       </mat-sidenav>
 
@@ -38,8 +52,8 @@
               </button>
             </div>
             <mat-grid-list
-              [cols]="isMax768 ? 1 : 3"
-              rowHeight="250px"
+              [cols]="isMax1280 ? 1 : 2"
+              rowHeight="180px"
               gutterSize="5px"
             >
               <mat-grid-tile *ngIf="randomNeutralBuildings.length > 0">
@@ -64,7 +78,7 @@
                 <div class="flex">
                   <div *ngFor="let randomHarborMaster of randomHarborMasters">
                     <img
-                      class="px-4"
+                      class="px-1 sm:px-2 md:px-4"
                       [src]="randomHarborMaster.sides[0].image"
                       alt="Harbor Master"
                     />
@@ -114,9 +128,15 @@
                   <li>
                     2. {{ t('further-steps-step2') }}
                     <ul class="list-disc pl-8 text-gray-400">
-                      <li>{{ t('further-steps-step21') }}</li>
-                      <li>{{ t('further-steps-step22') }}</li>
-                      <li>{{ t('further-steps-step23') }}</li>
+                      <li *ngIf="playerCount === 2">
+                        {{ t('further-steps-step21') }}
+                      </li>
+                      <li *ngIf="playerCount === 3">
+                        {{ t('further-steps-step22') }}
+                      </li>
+                      <li *ngIf="playerCount === 4">
+                        {{ t('further-steps-step23') }}
+                      </li>
                     </ul>
                   </li>
                   <li>3. {{ t('further-steps-step3') }}</li>
@@ -124,9 +144,15 @@
                   <li>
                     5. {{ t('further-steps-step5') }}
                     <ul class="list-disc pl-8 text-gray-400">
-                      <li>{{ t('further-steps-step51') }}</li>
-                      <li>{{ t('further-steps-step52') }}</li>
-                      <li>{{ t('further-steps-step53') }}</li>
+                      <li *ngIf="playerCount === 2">
+                        {{ t('further-steps-step51') }}
+                      </li>
+                      <li *ngIf="playerCount === 3">
+                        {{ t('further-steps-step52') }}
+                      </li>
+                      <li *ngIf="playerCount === 4">
+                        {{ t('further-steps-step53') }}
+                      </li>
                     </ul>
                   </li>
                   <li>6. {{ t('further-steps-step6') }}</li>
@@ -136,9 +162,15 @@
                   <li>
                     8. {{ t('further-steps-step8') }}
                     <ul class="list-disc pl-8 text-gray-400">
-                      <li>{{ t('further-steps-step81') }}</li>
-                      <li>{{ t('further-steps-step82') }}</li>
-                      <li>{{ t('further-steps-step83') }}</li>
+                      <li *ngIf="playerCount === 2">
+                        {{ t('further-steps-step81') }}
+                      </li>
+                      <li *ngIf="playerCount === 3">
+                        {{ t('further-steps-step82') }}
+                      </li>
+                      <li *ngIf="playerCount === 4">
+                        {{ t('further-steps-step83') }}
+                      </li>
                     </ul>
                   </li>
                   <li>
@@ -157,8 +189,12 @@
                     <ul class="list-disc pl-8 text-gray-400">
                       <li>{{ t('further-steps-step111') }}</li>
                       <li>{{ t('further-steps-step112') }}</li>
-                      <li>{{ t('further-steps-step113') }}</li>
-                      <li>{{ t('further-steps-step114') }}</li>
+                      <li *ngIf="playerCount >= 3">
+                        {{ t('further-steps-step113') }}
+                      </li>
+                      <li *ngIf="playerCount > 3">
+                        {{ t('further-steps-step114') }}
+                      </li>
                     </ul>
                   </li>
                 </ol>
