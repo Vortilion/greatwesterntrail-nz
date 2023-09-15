@@ -12,14 +12,14 @@
       <mat-sidenav
         class="sidenav"
         #sidenav
-        [mode]="isXSmall ? 'over' : 'side'"
+        [mode]="isMax768 ? 'over' : 'side'"
         [fixedInViewport]="isMax768"
         fixedTopGap="56"
         [opened]="isMax768 ? 'false' : 'opened'"
       >
-        <div class="sidenav__inner">
+        <div class="sidenav__inner p-4">
           <h2>{{ t('options-label') }}:</h2>
-          <mat-divider class="divider"></mat-divider>
+          <mat-divider class="divider mb-4"></mat-divider>
 
           <h3>{{ t('player-count-label') }}:</h3>
           <mat-form-field appearance="fill">
@@ -40,7 +40,7 @@
       </mat-sidenav>
 
       <mat-sidenav-content>
-        <div class="sidenav-content">
+        <div class="sidenav-content flex flex-col min-h-full">
           <div class="flex-1 px-12 py-5">
             <div class="mb-4">
               <button
