@@ -2,21 +2,24 @@
   <mat-toolbar
     color="primary"
     class="main-toolbar toolbar"
-    [class.is-mobile]="isMax768"
+    [class.is-mobile]="isXSmall"
   >
     <button
       type="button"
-      [hidden]="!isMax768"
+      [hidden]="!isXSmall"
       mat-icon-button
       (click)="sidebarHandle.toggle()"
     >
       <mat-icon>menu</mat-icon>
     </button>
-    <h1
-      class="app-name"
-      [style.fontSize.px]="isXXSmall ? 12 : isXSmall ? 14 : 18"
-    >
-      {{ 'app-title' | transloco }}
+    <h1 class="app-name">
+      <span *ngIf="!isXSmall; else textXSmall">{{
+        'app-title' | transloco
+      }}</span>
+
+      <ng-template #textXSmall>
+        <span class="text-xl">{{ 'app-title-short' | transloco }}</span>
+      </ng-template>
     </h1>
 
     <span class="spacer"></span>

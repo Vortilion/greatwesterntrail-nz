@@ -19,7 +19,6 @@ export class HomeComponent implements OnInit {
   playerCountList!: PlayerCountOption[];
   randomDeckbuildingModules: string[];
   isXSmall: boolean;
-  isMax768: boolean;
   isMax1280: boolean;
 
   constructor(
@@ -50,14 +49,6 @@ export class HomeComponent implements OnInit {
         this.isXSmall = true;
       } else {
         this.isXSmall = false;
-      }
-    });
-
-    this.responsive.observe('(max-width: 768px)').subscribe((result) => {
-      if (result.matches) {
-        this.isMax768 = true;
-      } else {
-        this.isMax768 = false;
       }
     });
 
