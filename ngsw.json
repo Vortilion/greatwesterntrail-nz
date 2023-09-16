@@ -1,0 +1,93 @@
+{
+  "configVersion": 1,
+  "timestamp": 1694864581280,
+  "index": "https://vortilion.github.io/gwt-nz/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://vortilion.github.io/gwt-nz/favicon.ico",
+        "https://vortilion.github.io/gwt-nz/index.html",
+        "https://vortilion.github.io/gwt-nz/main.27d5d253d39697cd.js",
+        "https://vortilion.github.io/gwt-nz/manifest.webmanifest",
+        "https://vortilion.github.io/gwt-nz/polyfills.b239789092a3611d.js",
+        "https://vortilion.github.io/gwt-nz/runtime.5dc706937478de19.js",
+        "https://vortilion.github.io/gwt-nz/styles.566eff80ceba9f36.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://vortilion.github.io/gwt-nz/assets/i18n/de.json",
+        "https://vortilion.github.io/gwt-nz/assets/i18n/en.json",
+        "https://vortilion.github.io/gwt-nz/assets/icons/icon-192x192.png",
+        "https://vortilion.github.io/gwt-nz/assets/icons/icon-256x256.png",
+        "https://vortilion.github.io/gwt-nz/assets/icons/icon-384x384.png",
+        "https://vortilion.github.io/gwt-nz/assets/icons/icon-512x512.png",
+        "https://vortilion.github.io/gwt-nz/assets/img/harbormaster-01.png",
+        "https://vortilion.github.io/gwt-nz/assets/img/harbormaster-02.png",
+        "https://vortilion.github.io/gwt-nz/assets/img/harbormaster-03.png",
+        "https://vortilion.github.io/gwt-nz/assets/img/harbormaster-04.png",
+        "https://vortilion.github.io/gwt-nz/assets/img/harbormaster-05.png",
+        "https://vortilion.github.io/gwt-nz/assets/img/harbormaster-06.png",
+        "https://vortilion.github.io/gwt-nz/assets/img/harbormaster-07.png",
+        "https://vortilion.github.io/gwt-nz/assets/img/harbormaster-08.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "https://vortilion.github.io/gwt-nz/assets/i18n/de.json": "14cf29d9eee105e3916ce33705ec0a18eb3e316b",
+    "https://vortilion.github.io/gwt-nz/assets/i18n/en.json": "13fa5a5a630d99d4035e509950a48c4e6b7d8812",
+    "https://vortilion.github.io/gwt-nz/assets/icons/icon-192x192.png": "4cb7c6ff5ce8846d1b893d4fafcca4861603945d",
+    "https://vortilion.github.io/gwt-nz/assets/icons/icon-256x256.png": "bc49c0198002cca31e43853817effea030efd1a4",
+    "https://vortilion.github.io/gwt-nz/assets/icons/icon-384x384.png": "2d8acf78303942ec2e1fb0abba7fd53d8cc51ed4",
+    "https://vortilion.github.io/gwt-nz/assets/icons/icon-512x512.png": "2e2e8679e4463fb121c10095adfa84335cf72599",
+    "https://vortilion.github.io/gwt-nz/assets/img/harbormaster-01.png": "dd286be2da080ca9d2b45fc094835d6d3facba38",
+    "https://vortilion.github.io/gwt-nz/assets/img/harbormaster-02.png": "6b7d7029a65496efe7561e5e45127a743f734d9a",
+    "https://vortilion.github.io/gwt-nz/assets/img/harbormaster-03.png": "4439dcc0cc053842d6488af16a39a4f6d7aeeeab",
+    "https://vortilion.github.io/gwt-nz/assets/img/harbormaster-04.png": "54119f0c6d01d65be41b1e779b6f24cffc895288",
+    "https://vortilion.github.io/gwt-nz/assets/img/harbormaster-05.png": "14cbb1771904f131b16b7bb8c2554c831eb4f8fb",
+    "https://vortilion.github.io/gwt-nz/assets/img/harbormaster-06.png": "a880bd4d0e10dc2caae8ad366fcbdf1d5f17991b",
+    "https://vortilion.github.io/gwt-nz/assets/img/harbormaster-07.png": "e1da853002ddb724f1db6b54da745919889eaa43",
+    "https://vortilion.github.io/gwt-nz/assets/img/harbormaster-08.png": "733e88aed071d87ab784e8cd2ef2a34f74d3b666",
+    "https://vortilion.github.io/gwt-nz/favicon.ico": "649678bf5790630b706035e5dd8e1806dc49009b",
+    "https://vortilion.github.io/gwt-nz/index.html": "c6e0b624a9b9978263c1901eb9b602bca79742a9",
+    "https://vortilion.github.io/gwt-nz/main.27d5d253d39697cd.js": "6a3bbe5a87c93e8bde5ad61639c546274a98eb02",
+    "https://vortilion.github.io/gwt-nz/manifest.webmanifest": "f67f5989be3aafa454f79ab197fcdec11e2ca79e",
+    "https://vortilion.github.io/gwt-nz/polyfills.b239789092a3611d.js": "1c074a33fc3d3ec53f35dfa2be58ef58e73bea8e",
+    "https://vortilion.github.io/gwt-nz/runtime.5dc706937478de19.js": "7ca9675f404e0ecfc42e004bd5193f8f565a1a1e",
+    "https://vortilion.github.io/gwt-nz/styles.566eff80ceba9f36.css": "8437a75ddb7b6c91aa6f3ffc256ace17208576f8"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
