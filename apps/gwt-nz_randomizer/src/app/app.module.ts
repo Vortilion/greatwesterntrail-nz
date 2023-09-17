@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { ServiceWorkerModule, SwPush, SwUpdate } from '@angular/service-worker';
-import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { TranslocoRootModule } from './transloco-root.module';
 import { LanguageSelectorComponent } from './language-selector/language-selector.component';
