@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1694943119343,
+  "timestamp": 1694943462060,
   "index": "https://vortilion.github.io/greatwesterntrail-nz/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "https://vortilion.github.io/greatwesterntrail-nz/favicon.ico",
         "https://vortilion.github.io/greatwesterntrail-nz/index.html",
-        "https://vortilion.github.io/greatwesterntrail-nz/main.d4f6fb92bf42b7b9.js",
+        "https://vortilion.github.io/greatwesterntrail-nz/main.722e35eafea314a9.js",
         "https://vortilion.github.io/greatwesterntrail-nz/manifest.webmanifest",
         "https://vortilion.github.io/greatwesterntrail-nz/polyfills.b239789092a3611d.js",
         "https://vortilion.github.io/greatwesterntrail-nz/runtime.5dc706937478de19.js",
@@ -23,7 +23,7 @@
     },
     {
       "name": "assets",
-      "installMode": "prefetch",
+      "installMode": "lazy",
       "updateMode": "prefetch",
       "cacheQueryOptions": {
         "ignoreVary": true
@@ -64,8 +64,8 @@
     "https://vortilion.github.io/greatwesterntrail-nz/assets/img/harbormaster-07.png": "e1da853002ddb724f1db6b54da745919889eaa43",
     "https://vortilion.github.io/greatwesterntrail-nz/assets/img/harbormaster-08.png": "733e88aed071d87ab784e8cd2ef2a34f74d3b666",
     "https://vortilion.github.io/greatwesterntrail-nz/favicon.ico": "649678bf5790630b706035e5dd8e1806dc49009b",
-    "https://vortilion.github.io/greatwesterntrail-nz/index.html": "41747a041791dd69f9312f5ab552975a4770c77e",
-    "https://vortilion.github.io/greatwesterntrail-nz/main.d4f6fb92bf42b7b9.js": "6a473c912a2af908e078c873d0c798d9ab381aa0",
+    "https://vortilion.github.io/greatwesterntrail-nz/index.html": "e4eb5dfa7168c0bd022ff7529a07a03753e76ce4",
+    "https://vortilion.github.io/greatwesterntrail-nz/main.722e35eafea314a9.js": "d4cb8a4c92b43aa20fc62bbd4b809737364fd6c0",
     "https://vortilion.github.io/greatwesterntrail-nz/manifest.webmanifest": "f67f5989be3aafa454f79ab197fcdec11e2ca79e",
     "https://vortilion.github.io/greatwesterntrail-nz/polyfills.b239789092a3611d.js": "1c074a33fc3d3ec53f35dfa2be58ef58e73bea8e",
     "https://vortilion.github.io/greatwesterntrail-nz/runtime.5dc706937478de19.js": "7ca9675f404e0ecfc42e004bd5193f8f565a1a1e",
