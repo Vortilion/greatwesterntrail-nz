@@ -6,7 +6,7 @@
   "background_color": "#00838f",
   "display": "standalone",
   "scope": "./",
-  "start_url": "./",
+  "start_url": "./greatwesterntrail-nz/",
   "description": "A small setup randomizer for the boardgame Great Western Trail New Zealand.",
   "icons": [
     {
