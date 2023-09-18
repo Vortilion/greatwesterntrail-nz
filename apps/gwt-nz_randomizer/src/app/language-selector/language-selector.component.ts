@@ -23,11 +23,6 @@ export class LanguageSelectorComponent implements OnInit {
     } else {
       this.activeLang = this.translocoService.getDefaultLang();
     }
-
-    console.debug(
-      'this.translocoService.getDefaultLang(): ',
-      this.translocoService.getDefaultLang(),
-    );
   }
 
   changeLanguage(lang: string): void {
