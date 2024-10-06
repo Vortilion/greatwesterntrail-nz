@@ -36,4 +36,18 @@
       {{ 'de-language-label' | transloco }}
     </span>
   </button>
+  <button
+    mat-menu-item
+    (click)="changeLanguage('ru')"
+    [ngClass]="{ active: activeLang === 'ru' }"
+  >
+    <mat-icon
+      [ngStyle]="{ color: activeLang === 'ru' ? 'rgb(255 143 0)' : '' }"
+    >
+      language
+    </mat-icon>
+    <span [ngStyle]="{ color: activeLang === 'ru' ? 'rgb(255 143 0)' : '' }">
+      {{ 'ru-language-label' | transloco }}
+    </span>
+  </button>
 </mat-menu>
