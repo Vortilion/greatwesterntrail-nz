@@ -639,3 +639,9 @@
 [NX Daemon Server] - 2025-01-24T20:52:06.195Z - Done responding to the client project-graph
 [NX Daemon Server] - 2025-01-24T20:52:06.195Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 1.
 [NX Daemon Server] - 2025-01-24T20:52:06.196Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2025-01-24T20:55:48.569Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-01-24T20:55:48.570Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2025-01-24T20:55:48.570Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2025-01-24T20:55:48.570Z - [WATCHER]: Stopping the watcher for /Users/sascha/DEV/GitHub/greatwesterntrail-nz (sources)
+[NX Daemon Server] - 2025-01-24T20:55:48.570Z - [WATCHER]: Stopping the watcher for /Users/sascha/DEV/GitHub/greatwesterntrail-nz (outputs)
+[NX Daemon Server] - 2025-01-24T20:55:48.571Z - Server stopped because: "LOCK_FILES_CHANGED"
