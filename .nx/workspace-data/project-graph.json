@@ -214,15 +214,6 @@
         "hash": "sha512-b6suED+5/3rTpUBdG1gupIl8MPFCAMA0QXwmljLhvCUKcUvdE4gWky9zpuGCcXHOsz4J9wPGNWq6OKpmIzz3hQ=="
       }
     },
-    "npm:flat": {
-      "type": "npm",
-      "name": "npm:flat",
-      "data": {
-        "version": "6.0.1",
-        "packageName": "flat",
-        "hash": "sha512-/3FfIa8mbrg3xE7+wAhWeV+bd7L2Mof+xtZb5dRDKZ+wDvYJK4WDYeIOuOhre5Yv5aQObZrlbRmk3RTSiuQBtw=="
-      }
-    },
     "npm:http-proxy-middleware@3.0.0": {
       "type": "npm",
       "name": "npm:http-proxy-middleware@3.0.0",
@@ -3053,9 +3044,9 @@
       "type": "npm",
       "name": "npm:@jsverse/transloco",
       "data": {
-        "version": "7.5.0",
+        "version": "7.5.1",
         "packageName": "@jsverse/transloco",
-        "hash": "sha512-OnK8y84TWxWeNH+Qw0kHPECpmLOrwMRP+NMcUXm3lEqRrd13qe9XkhbAysAHGJ6kfZqgIiAMS9rqnFf6JTSc5g=="
+        "hash": "sha512-2GtJKFKmwvw7ygkf51kNMNJ1PSiepvDIqgFM1Sl8aX6if/kZ4/FNKVz0t64QP2JHUU16I2Le05In7IbiRE7ZrQ=="
       }
     },
     "npm:@jsverse/transloco-utils": {
@@ -16481,11 +16472,6 @@
       {
         "source": "npm:@jsverse/transloco",
         "target": "npm:@jsverse/transloco-utils",
-        "type": "static"
-      },
-      {
-        "source": "npm:@jsverse/transloco",
-        "target": "npm:flat",
         "type": "static"
       },
       {
