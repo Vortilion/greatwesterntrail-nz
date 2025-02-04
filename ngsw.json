@@ -1,0 +1,97 @@
+{
+  "configVersion": 1,
+  "timestamp": 1738698617099,
+  "index": "/greatwesterntrail-nz/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/greatwesterntrail-nz/favicon.ico",
+        "/greatwesterntrail-nz/index.html",
+        "/greatwesterntrail-nz/main.06db2a4b30561bf8.js",
+        "/greatwesterntrail-nz/manifest.webmanifest",
+        "/greatwesterntrail-nz/polyfills.997f1a750f35d4d3.js",
+        "/greatwesterntrail-nz/runtime.c924679e30a6c914.js",
+        "/greatwesterntrail-nz/styles.1dc5d30db78f1098.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/greatwesterntrail-nz/assets/i18n/de.json",
+        "/greatwesterntrail-nz/assets/i18n/en.json",
+        "/greatwesterntrail-nz/assets/i18n/pl.json",
+        "/greatwesterntrail-nz/assets/i18n/ru.json",
+        "/greatwesterntrail-nz/assets/icons/icon-192x192.png",
+        "/greatwesterntrail-nz/assets/icons/icon-256x256.png",
+        "/greatwesterntrail-nz/assets/icons/icon-384x384.png",
+        "/greatwesterntrail-nz/assets/icons/icon-512x512.png",
+        "/greatwesterntrail-nz/assets/img/harbormaster-01.png",
+        "/greatwesterntrail-nz/assets/img/harbormaster-02.png",
+        "/greatwesterntrail-nz/assets/img/harbormaster-03.png",
+        "/greatwesterntrail-nz/assets/img/harbormaster-04.png",
+        "/greatwesterntrail-nz/assets/img/harbormaster-05.png",
+        "/greatwesterntrail-nz/assets/img/harbormaster-06.png",
+        "/greatwesterntrail-nz/assets/img/harbormaster-07.png",
+        "/greatwesterntrail-nz/assets/img/harbormaster-08.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/greatwesterntrail-nz/assets/i18n/de.json": "317355a985ec268571d8eeda75bd466e1167c43f",
+    "/greatwesterntrail-nz/assets/i18n/en.json": "d60026a9d9f5b39fef50ca753b1d4f204db8feb4",
+    "/greatwesterntrail-nz/assets/i18n/pl.json": "db4a83c82931ddfebcae8e4a79cfad80ee493648",
+    "/greatwesterntrail-nz/assets/i18n/ru.json": "d79136b46849c9a9924f56f876d8eeb1a25cf211",
+    "/greatwesterntrail-nz/assets/icons/icon-192x192.png": "4cb7c6ff5ce8846d1b893d4fafcca4861603945d",
+    "/greatwesterntrail-nz/assets/icons/icon-256x256.png": "bc49c0198002cca31e43853817effea030efd1a4",
+    "/greatwesterntrail-nz/assets/icons/icon-384x384.png": "2d8acf78303942ec2e1fb0abba7fd53d8cc51ed4",
+    "/greatwesterntrail-nz/assets/icons/icon-512x512.png": "2e2e8679e4463fb121c10095adfa84335cf72599",
+    "/greatwesterntrail-nz/assets/img/harbormaster-01.png": "dd286be2da080ca9d2b45fc094835d6d3facba38",
+    "/greatwesterntrail-nz/assets/img/harbormaster-02.png": "6b7d7029a65496efe7561e5e45127a743f734d9a",
+    "/greatwesterntrail-nz/assets/img/harbormaster-03.png": "4439dcc0cc053842d6488af16a39a4f6d7aeeeab",
+    "/greatwesterntrail-nz/assets/img/harbormaster-04.png": "54119f0c6d01d65be41b1e779b6f24cffc895288",
+    "/greatwesterntrail-nz/assets/img/harbormaster-05.png": "14cbb1771904f131b16b7bb8c2554c831eb4f8fb",
+    "/greatwesterntrail-nz/assets/img/harbormaster-06.png": "a880bd4d0e10dc2caae8ad366fcbdf1d5f17991b",
+    "/greatwesterntrail-nz/assets/img/harbormaster-07.png": "e1da853002ddb724f1db6b54da745919889eaa43",
+    "/greatwesterntrail-nz/assets/img/harbormaster-08.png": "733e88aed071d87ab784e8cd2ef2a34f74d3b666",
+    "/greatwesterntrail-nz/favicon.ico": "649678bf5790630b706035e5dd8e1806dc49009b",
+    "/greatwesterntrail-nz/index.html": "23a07ec196991022101f7a938fabf763483cb11c",
+    "/greatwesterntrail-nz/main.06db2a4b30561bf8.js": "714d2510375e046b015f000f43936d33b8ec296a",
+    "/greatwesterntrail-nz/manifest.webmanifest": "fc43d70da248188bd3e7ec73f7b0a6c87ef70c0c",
+    "/greatwesterntrail-nz/polyfills.997f1a750f35d4d3.js": "17633b57fa43536ea59e4e3c3ba1edd1cefb78b4",
+    "/greatwesterntrail-nz/runtime.c924679e30a6c914.js": "c5f581cf0b96e8a8fb07d9715477df9500a34191",
+    "/greatwesterntrail-nz/styles.1dc5d30db78f1098.css": "a17a7b84e7e7611b63a580e9f412d80cdf94d481"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
