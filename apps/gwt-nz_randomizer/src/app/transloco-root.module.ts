@@ -8,7 +8,7 @@ import { TranslocoHttpLoader } from './transloco-loader';
   providers: [
     provideTransloco({
       config: {
-        availableLangs: ['de', 'en', 'ru'],
+        availableLangs: ['de', 'en', 'ru', 'pl'],
         defaultLang: 'en',
         fallbackLang: 'en',
         missingHandler: {

@@ -54,88 +54,88 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "tsconfig.base.json",
-        "hash": "11625520704307158915"
+        "file": "LICENSE",
+        "hash": "11946571080211466253"
       },
       {
         "file": "package-lock.json",
         "hash": "10041821907804582718"
       },
       {
-        "file": "nx.json",
-        "hash": "1610117707577009838"
-      },
-      {
         "file": ".prettierrc",
         "hash": "10801117440090935095"
-      },
-      {
-        "file": ".prettierignore",
-        "hash": "8865097869854018350"
-      },
-      {
-        "file": "LICENSE",
-        "hash": "11946571080211466253"
-      },
-      {
-        "file": "tools/tsconfig.tools.json",
-        "hash": "113529236189617652"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "13044518069027839699"
-      },
-      {
-        "file": ".vscode/extensions.json",
-        "hash": "1260075756541275101"
-      },
-      {
-        "file": ".editorconfig",
-        "hash": "6686520031028425313"
-      },
-      {
-        "file": "package.json",
-        "hash": "15428325617576762339"
-      },
-      {
-        "file": ".eslintignore",
-        "hash": "7663861978715868291"
-      },
-      {
-        "file": "libs/.gitkeep",
-        "hash": "3244421341483603138"
-      },
-      {
-        "file": ".vscode/settings.json",
-        "hash": "2420806712541564760"
       },
       {
         "file": ".eslintrc.json",
         "hash": "2232027051750015508"
       },
       {
-        "file": "README.md",
-        "hash": "9185950703025238890"
+        "file": "karma.conf.js",
+        "hash": "11538871871811595139"
       },
       {
-        "file": "tools/generators/.gitkeep",
-        "hash": "3244421341483603138"
+        "file": "nx.json",
+        "hash": "1610117707577009838"
       },
       {
-        "file": "tailwind.config.js",
-        "hash": "7881221347642457125"
-      },
-      {
-        "file": "transloco.config.js",
-        "hash": "16846709082255837009"
+        "file": ".editorconfig",
+        "hash": "6686520031028425313"
       },
       {
         "file": ".github/workflows/deploy.yml",
         "hash": "5598343209229082124"
       },
       {
-        "file": "karma.conf.js",
-        "hash": "11538871871811595139"
+        "file": ".gitignore",
+        "hash": "13044518069027839699"
+      },
+      {
+        "file": ".vscode/settings.json",
+        "hash": "5657170024497220908"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "8865097869854018350"
+      },
+      {
+        "file": ".vscode/extensions.json",
+        "hash": "1260075756541275101"
+      },
+      {
+        "file": "tools/tsconfig.tools.json",
+        "hash": "113529236189617652"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "11625520704307158915"
+      },
+      {
+        "file": "tools/generators/.gitkeep",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "libs/.gitkeep",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "README.md",
+        "hash": "9185950703025238890"
+      },
+      {
+        "file": "transloco.config.js",
+        "hash": "8355985027053162719"
+      },
+      {
+        "file": "package.json",
+        "hash": "15428325617576762339"
+      },
+      {
+        "file": "tailwind.config.js",
+        "hash": "7881221347642457125"
+      },
+      {
+        "file": ".eslintignore",
+        "hash": "7663861978715868291"
       }
     ],
     "projectFileMap": {
@@ -181,7 +181,7 @@
         },
         {
           "file": "apps/gwt-nz_randomizer/src/app/app.module.ts",
-          "hash": "3879566660005924805",
+          "hash": "8988728880462428497",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/platform-browser",
@@ -219,7 +219,7 @@
         },
         {
           "file": "apps/gwt-nz_randomizer/src/app/language-selector/language-selector.component.html",
-          "hash": "6366402313437033808"
+          "hash": "9768157467633574446"
         },
         {
           "file": "apps/gwt-nz_randomizer/src/app/language-selector/language-selector.component.scss",
@@ -234,7 +234,7 @@
         },
         {
           "file": "apps/gwt-nz_randomizer/src/app/language-selector/language-selector.component.ts",
-          "hash": "14237959140564955080",
+          "hash": "8089999164575695186",
           "deps": [
             "npm:@angular/core",
             "npm:@jsverse/transloco"
@@ -319,7 +319,7 @@
         },
         {
           "file": "apps/gwt-nz_randomizer/src/app/transloco-root.module.ts",
-          "hash": "10396944474376888044",
+          "hash": "3960504468953190295",
           "deps": [
             "npm:@jsverse/transloco",
             "npm:@angular/core"
@@ -335,15 +335,19 @@
         },
         {
           "file": "apps/gwt-nz_randomizer/src/assets/i18n/de.json",
-          "hash": "11648813441697058986"
+          "hash": "14722455136880443245"
         },
         {
           "file": "apps/gwt-nz_randomizer/src/assets/i18n/en.json",
-          "hash": "4435389150279513298"
+          "hash": "14344233604345057268"
+        },
+        {
+          "file": "apps/gwt-nz_randomizer/src/assets/i18n/pl.json",
+          "hash": "14575511478349021350"
         },
         {
           "file": "apps/gwt-nz_randomizer/src/assets/i18n/ru.json",
-          "hash": "9508425987974791273"
+          "hash": "10660854521004985426"
         },
         {
           "file": "apps/gwt-nz_randomizer/src/assets/icons/icon-192x192.png",

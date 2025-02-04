@@ -43,6 +43,7 @@
   "en-language-label": "EN",
   "de-language-label": "DE",
   "ru-language-label": "RU",
+  "pl-language-label": "PL",
   "messages": {
     "update-available": "Update verfügbar"
   }
