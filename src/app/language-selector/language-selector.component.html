@@ -8,19 +8,19 @@
 </button>
 <span>{{ activeLang + '-language-label' | transloco }}</span>
 <mat-menu #menu="matMenu">
+  @for (lang of availableLangs; track lang) {
   <button
-    *ngFor="let lang of availableLangs"
     mat-menu-item
     (click)="changeLanguage(lang)"
-    [ngClass]="{ active: activeLang === lang }"
+    [class.active]="activeLang === lang"
   >
     <mat-icon
-      [ngStyle]="{ color: activeLang === lang ? 'rgb(255 143 0)' : '' }"
-    >
+      [style.color]="activeLang === lang ? 'rgb(255 143 0)' : ''">
       language
     </mat-icon>
-    <span [ngStyle]="{ color: activeLang === lang ? 'rgb(255 143 0)' : '' }">
+    <span [style.color]="activeLang === lang ? 'rgb(255 143 0)' : ''">
       {{ lang + '-language-label' | transloco }}
     </span>
   </button>
+  }
 </mat-menu>

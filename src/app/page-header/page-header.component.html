@@ -9,13 +9,11 @@
       <mat-icon>menu</mat-icon>
     </button>
     <span class="app-name text-xl">
-      <span *ngIf="!isXSmall; else textXSmall">{{
-        "app-title" | transloco
-      }}</span>
-
-      <ng-template #textXSmall>
-        <span class="text-xl">{{ "app-title-short" | transloco }}</span>
-      </ng-template>
+      @if (!isXSmall) {
+      <span>{{ "app-title" | transloco }}</span>
+      } @else {
+      <span class="text-xl">{{ "app-title-short" | transloco }}</span>
+      }
     </span>
 
     <span class="spacer"></span>

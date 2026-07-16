@@ -1,16 +1,36 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ApplicationConfigService } from '../shared/application-config.service';
 import { Tile } from '../models/tile.model';
 import { StorageMap } from '@ngx-pwa/local-storage';
 import { PlayerCountOption } from '../models/player-count-option.model';
-import { MatSelectChange } from '@angular/material/select';
+import { MatSelectChange, MatSelectModule } from '@angular/material/select';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDividerModule } from '@angular/material/divider';
+import { TranslocoDirective } from '@jsverse/transloco';
+import { PageHeaderComponent } from '../page-header/page-header.component';
+import { PageFooterComponent } from '../page-footer/page-footer.component';
 
 @Component({
   selector: 'app-home',
-  standalone: false,
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
+  imports: [
+    MatSidenavModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatCardModule,
+    MatGridListModule,
+    MatDividerModule,
+    TranslocoDirective,
+    PageHeaderComponent,
+    PageFooterComponent,
+  ],
 })
 export class HomeComponent implements OnInit {
   randomNeutralBuildings!: Tile[];
@@ -22,11 +42,9 @@ export class HomeComponent implements OnInit {
   isXSmall!: boolean;
   isMax1280!: boolean;
 
-  constructor(
-    private applicationConfigService: ApplicationConfigService,
-    private responsive: BreakpointObserver,
-    private storage: StorageMap
-  ) {}
+  private readonly applicationConfigService = inject(ApplicationConfigService);
+  private readonly responsive = inject(BreakpointObserver);
+  private readonly storage = inject(StorageMap);
 
   ngOnInit(): void {
     this.playerCount = 2;
@@ -62,9 +80,11 @@ export class HomeComponent implements OnInit {
     });
 
     this.storage.get('rar-playerCount').subscribe((playerCount) => {
-      playerCount && typeof playerCount === 'number'
-        ? this.emitPlayerCount(playerCount)
-        : this.storage.set('rar-playerCount', 2).subscribe(() => {});
+      if (playerCount && typeof playerCount === 'number') {
+        this.emitPlayerCount(playerCount);
+      } else {
+        this.storage.set('rar-playerCount', 2).subscribe();
+      }
     });
 
     this.applicationConfigService.playerCount.subscribe(
@@ -76,12 +96,12 @@ export class HomeComponent implements OnInit {
     this.randomizeSetup();
   }
 
-  emitPlayerCount(playerCount: any) {
+  emitPlayerCount(playerCount: number) {
     this.applicationConfigService.playerCount.emit(playerCount);
   }
 
   onPlayerCountChange(event: MatSelectChange) {
-    this.storage.set('rar-playerCount', event.value).subscribe(() => {});
+    this.storage.set('rar-playerCount', event.value).subscribe();
     this.emitPlayerCount(event.value);
   }
 

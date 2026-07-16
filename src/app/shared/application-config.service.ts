@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { Tile, TileSide } from '../models/tile.model';
+import { Tile } from '../models/tile.model';
 
 @Injectable({
   providedIn: 'root',
@@ -265,8 +265,8 @@ export class ApplicationConfigService {
   }
 
   getRandomHarborMasters(): Tile[] {
-    let selection: Tile[] = [];
-    let shuffledHarborMasters = this.shuffleArray(this.harborMasters);
+    const selection: Tile[] = [];
+    const shuffledHarborMasters = this.shuffleArray(this.harborMasters);
 
     for (let i = 0; i < 5; i++) {
       selection.push(shuffledHarborMasters.pop());
@@ -276,8 +276,8 @@ export class ApplicationConfigService {
   }
 
   getRandomDeckbuildingModules(): string[] {
-    let selection: string[] = [];
-    let shuffledDeckbuildingModules = this.shuffleArray(
+    const selection: string[] = [];
+    const shuffledDeckbuildingModules = this.shuffleArray(
       this.deckBuildingModules
     );
 
@@ -291,7 +291,7 @@ export class ApplicationConfigService {
   }
 
   getRandomPlayerBuildings(): Tile[] {
-    let playerBuildings = JSON.parse(JSON.stringify(this.playerBuildings));
+    const playerBuildings = JSON.parse(JSON.stringify(this.playerBuildings));
 
     playerBuildings.forEach((playerBuilding: Tile) => {
       playerBuilding.sides.splice(
@@ -303,11 +303,11 @@ export class ApplicationConfigService {
     return playerBuildings;
   }
 
-  private shuffleArray(inArray: any[]): any[] {
-    let returnArray = inArray.slice();
+  private shuffleArray<T>(inArray: T[]): T[] {
+    const returnArray = inArray.slice();
 
     for (
-      var j, x, i = returnArray.length;
+      let j, x, i = returnArray.length;
       i;
       j = Math.floor(Math.random() * i),
         x = returnArray[--i],
