@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1784234144444,
+  "timestamp": 1784529575348,
   "index": "https://vortilion.github.io/greatwesterntrail-nz/index.html",
   "assetGroups": [
     {
@@ -17,7 +17,7 @@
         "https://vortilion.github.io/greatwesterntrail-nz/index.html",
         "https://vortilion.github.io/greatwesterntrail-nz/main-HRHUTMGW.js",
         "https://vortilion.github.io/greatwesterntrail-nz/manifest.webmanifest",
-        "https://vortilion.github.io/greatwesterntrail-nz/styles-Q2BF7JWZ.css"
+        "https://vortilion.github.io/greatwesterntrail-nz/styles-EAJECDYT.css"
       ],
       "patterns": []
     },
@@ -68,10 +68,10 @@
     "https://vortilion.github.io/greatwesterntrail-nz/img/harbormaster-06.png": "a880bd4d0e10dc2caae8ad366fcbdf1d5f17991b",
     "https://vortilion.github.io/greatwesterntrail-nz/img/harbormaster-07.png": "e1da853002ddb724f1db6b54da745919889eaa43",
     "https://vortilion.github.io/greatwesterntrail-nz/img/harbormaster-08.png": "733e88aed071d87ab784e8cd2ef2a34f74d3b666",
-    "https://vortilion.github.io/greatwesterntrail-nz/index.html": "6131f698f9658d06fb6b757ba4f025746d0a7e60",
+    "https://vortilion.github.io/greatwesterntrail-nz/index.html": "a43cd42b151dfe624de99c4e08930a89dd36c4fc",
     "https://vortilion.github.io/greatwesterntrail-nz/main-HRHUTMGW.js": "1f0eebafdd26e08287cb370f33e5cbd2a06cccb5",
     "https://vortilion.github.io/greatwesterntrail-nz/manifest.webmanifest": "3edc9b1d224977b63d00eef869653755c550ad3a",
-    "https://vortilion.github.io/greatwesterntrail-nz/styles-Q2BF7JWZ.css": "25e5381051745f79ce3557e6aa0b86fc25969549"
+    "https://vortilion.github.io/greatwesterntrail-nz/styles-EAJECDYT.css": "9069f3191abf71fca1ea83c0e5b622067e2e968b"
   },
   "navigationUrls": [
     {
