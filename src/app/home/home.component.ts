@@ -35,10 +35,18 @@ import { firstValueFrom, map } from 'rxjs';
   ],
 })
 export class HomeComponent {
-  readonly randomNeutralBuildings = signal<Tile[]>([]);
-  readonly randomPlayerBuildings = signal<Tile[]>([]);
-  readonly randomHarborMasters = signal<Tile[]>([]);
-  readonly randomDeckbuildingModules = signal<string[]>([]);
+  private readonly _randomNeutralBuildings = signal<Tile[]>([]);
+  readonly randomNeutralBuildings = this._randomNeutralBuildings.asReadonly();
+
+  private readonly _randomPlayerBuildings = signal<Tile[]>([]);
+  readonly randomPlayerBuildings = this._randomPlayerBuildings.asReadonly();
+
+  private readonly _randomHarborMasters = signal<Tile[]>([]);
+  readonly randomHarborMasters = this._randomHarborMasters.asReadonly();
+
+  private readonly _randomDeckbuildingModules = signal<string[]>([]);
+  readonly randomDeckbuildingModules = this._randomDeckbuildingModules.asReadonly();
+
   readonly playerCountList: PlayerCountOption[] = [
     {
       label: '2',
@@ -93,12 +101,12 @@ export class HomeComponent {
   }
 
   randomizeSetup(): void {
-    this.randomNeutralBuildings.set(this.gwtNzConfigService.getRandomNeutralBuildingOrder());
+    this._randomNeutralBuildings.set(this.gwtNzConfigService.getRandomNeutralBuildingOrder());
 
-    this.randomHarborMasters.set(this.gwtNzConfigService.getRandomHarborMasters());
+    this._randomHarborMasters.set(this.gwtNzConfigService.getRandomHarborMasters());
 
-    this.randomDeckbuildingModules.set(this.gwtNzConfigService.getRandomDeckbuildingModules());
+    this._randomDeckbuildingModules.set(this.gwtNzConfigService.getRandomDeckbuildingModules());
 
-    this.randomPlayerBuildings.set(this.gwtNzConfigService.getRandomPlayerBuildings());
+    this._randomPlayerBuildings.set(this.gwtNzConfigService.getRandomPlayerBuildings());
   }
 }
