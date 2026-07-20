@@ -3,24 +3,25 @@
   [matMenuTriggerFor]="menu"
   class="example-icon favorite-icon"
   aria-label="Language Selection"
->
+  >
   <mat-icon>translate</mat-icon>
 </button>
-<span>{{ activeLang + '-language-label' | transloco }}</span>
+<span>{{ activeLang() + '-language-label' | transloco }}</span>
 <mat-menu #menu="matMenu">
-  @for (lang of availableLangs; track lang) {
-  <button
-    mat-menu-item
-    (click)="changeLanguage(lang)"
-    [class.active]="activeLang === lang"
-  >
-    <mat-icon
-      [style.color]="activeLang === lang ? 'rgb(255 143 0)' : ''">
-      language
-    </mat-icon>
-    <span [style.color]="activeLang === lang ? 'rgb(255 143 0)' : ''">
-      {{ lang + '-language-label' | transloco }}
-    </span>
-  </button>
+  @for (lang of availableLangs(); track lang) {
+    <button
+      mat-menu-item
+      (click)="changeLanguage(lang)"
+      [class.active]="activeLang() === lang"
+      >
+      <mat-icon
+        [style.color]="activeLang() === lang ? 'rgb(255 143 0)' : null"
+        >
+        language
+      </mat-icon>
+      <span [style.color]="activeLang() === lang ? 'rgb(255 143 0)' : null">
+        {{ lang + '-language-label' | transloco }}
+      </span>
+    </button>
   }
 </mat-menu>

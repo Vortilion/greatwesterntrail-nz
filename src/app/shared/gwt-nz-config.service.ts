@@ -1,11 +1,17 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { Tile } from '../models/tile.model';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ApplicationConfigService {
-  playerCount = new EventEmitter<number>();
+export class GwtNzConfigService {
+  private readonly _playerCount = signal(2);
+  readonly playerCount = this._playerCount.asReadonly();
+
+  setPlayerCount(playerCount: number): void {
+    this._playerCount.set(playerCount);
+  }
+
   neutralBuildings: Tile[] = [
     {
       title: 'A',
@@ -269,7 +275,11 @@ export class ApplicationConfigService {
     const shuffledHarborMasters = this.shuffleArray(this.harborMasters);
 
     for (let i = 0; i < 5; i++) {
-      selection.push(shuffledHarborMasters.pop());
+      const harborMaster = shuffledHarborMasters.pop();
+
+      if (harborMaster) {
+        selection.push(harborMaster);
+      }
     }
 
     return selection;
@@ -282,7 +292,11 @@ export class ApplicationConfigService {
     );
 
     for (let i = 0; i < 4; i++) {
-      selection.push(shuffledDeckbuildingModules.pop());
+      const deckbuildingModule = shuffledDeckbuildingModules.pop();
+
+      if (deckbuildingModule) {
+        selection.push(deckbuildingModule);
+      }
     }
 
     return selection.sort((a, b) => {
@@ -306,14 +320,14 @@ export class ApplicationConfigService {
   private shuffleArray<T>(inArray: T[]): T[] {
     const returnArray = inArray.slice();
 
-    for (
-      let j, x, i = returnArray.length;
-      i;
-      j = Math.floor(Math.random() * i),
-        x = returnArray[--i],
-        returnArray[i] = returnArray[j],
-        returnArray[j] = x
-    );
+    for (let i = returnArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const current = returnArray[i]!;
+
+      returnArray[i] = returnArray[j]!;
+      returnArray[j] = current;
+    }
+
     return returnArray;
   }
 }

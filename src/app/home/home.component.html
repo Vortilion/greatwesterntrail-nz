@@ -1,18 +1,18 @@
 <ng-container *transloco="let t">
-  <div class="home-component flex flex-col" [class.is-mobile]="isXSmall">
+  <div class="home-component flex flex-col" [class.is-mobile]="isXSmall()">
     <app-page-header [sidebarHandle]="sidenav"> </app-page-header>
 
     <mat-sidenav-container
       class="sidenav-container flex-1"
-      [style.paddingTop.px]="isXSmall ? 56 : 0"
+      [style.paddingTop.px]="isXSmall() ? 56 : 0"
     >
       <mat-sidenav
         class="sidenav"
         #sidenav
-        [mode]="isXSmall ? 'over' : 'side'"
-        [fixedInViewport]="isXSmall"
+        [mode]="isXSmall() ? 'over' : 'side'"
+        [fixedInViewport]="isXSmall()"
         fixedTopGap="56"
-        [opened]="isXSmall ? 'false' : 'opened'"
+        [opened]="!isXSmall()"
       >
         <div class="sidenav__inner p-4">
           <h2>{{ t("options-label") }}:</h2>
@@ -22,12 +22,12 @@
           <mat-form-field appearance="fill">
             <mat-label>{{ t("player-count-select-label") }}</mat-label>
             <mat-select
-              [value]="playerCount"
+              [value]="playerCount()"
               (selectionChange)="onPlayerCountChange($event)"
             >
-              @for (playerCount of playerCountList; track playerCount.value) {
-                <mat-option [value]="playerCount.value">
-                  {{ playerCount.label }} <span>{{ t("players-label") }}</span>
+              @for (playerCountOption of playerCountList; track playerCountOption.value) {
+                <mat-option [value]="playerCountOption.value">
+                  {{ playerCountOption.label }} <span>{{ t("players-label") }}</span>
                 </mat-option>
               }
             </mat-select>
@@ -40,7 +40,7 @@
           <div class="flex-1 px-2 xSmall:px-10 py-5">
             <div class="mb-4">
               <button
-                [class]="{ 'w-full': isXSmall }"
+                [class]="{ 'w-full': isXSmall() }"
                 mat-flat-button
                 color="primary"
                 (click)="randomizeSetup()"
@@ -49,11 +49,11 @@
               </button>
             </div>
             <mat-grid-list
-              [cols]="isMax1280 ? 1 : 2"
+              [cols]="isMax1280() ? 1 : 2"
               rowHeight="180px"
               gutterSize="5px"
             >
-              @if (randomNeutralBuildings.length > 0) {
+              @if (randomNeutralBuildings().length > 0) {
               <mat-grid-tile>
                 <mat-grid-tile-header>
                   <h3>
@@ -62,7 +62,7 @@
                   </h3>
                 </mat-grid-tile-header>
                 <ul class="flex">
-                  @for (neutralBuilding of randomNeutralBuildings; track neutralBuilding.title) {
+                  @for (neutralBuilding of randomNeutralBuildings(); track neutralBuilding.title) {
                   <li
                     class="px-2 text-2xl xSmall:text-xl"
                   >
@@ -72,7 +72,7 @@
                 </ul>
               </mat-grid-tile>
               }
-              @if (randomHarborMasters && randomHarborMasters.length > 0) {
+              @if (randomHarborMasters().length > 0) {
               <mat-grid-tile>
                 <mat-grid-tile-header>
                   <h3>
@@ -81,7 +81,7 @@
                   </h3>
                 </mat-grid-tile-header>
                 <div class="flex">
-                  @for (randomHarborMaster of randomHarborMasters; track randomHarborMaster.title) {
+                  @for (randomHarborMaster of randomHarborMasters(); track randomHarborMaster.title) {
                   <div>
                     <img
                       class="px-1 xSmall:px-2 md:px-4"
@@ -93,7 +93,7 @@
                 </div>
               </mat-grid-tile>
               }
-              @if (randomDeckbuildingModules.length > 0) {
+              @if (randomDeckbuildingModules().length > 0) {
               <mat-grid-tile>
                 <mat-grid-tile-header>
                   <h3>
@@ -103,7 +103,7 @@
                 </mat-grid-tile-header>
                 <ul class="flex">
                   @for (
-                    randomDeckbuildingModule of randomDeckbuildingModules;
+                    randomDeckbuildingModule of randomDeckbuildingModules();
                     track randomDeckbuildingModule
                   ) {
                   <li
@@ -123,7 +123,7 @@
                   </h3>
                 </mat-grid-tile-header>
                 <div class="flex flex-wrap">
-                  @for (randomPlayerBuilding of randomPlayerBuildings; track randomPlayerBuilding.title) {
+                  @for (randomPlayerBuilding of randomPlayerBuildings(); track randomPlayerBuilding.title) {
                   <span
                     class="px-2 text-2xl xSmall:text-xl flex-1"
                   >
@@ -149,17 +149,17 @@
                   <li>
                     2. {{ t("further-steps-step2") }}
                     <ul class="list-disc pl-8 text-gray-400">
-                    @if (playerCount === 2) {
+                    @if (playerCount() === 2) {
                     <li>
                       {{ t("further-steps-step21") }}
                     </li>
                     }
-                    @if (playerCount === 3) {
+                    @if (playerCount() === 3) {
                     <li>
                       {{ t("further-steps-step22") }}
                     </li>
                     }
-                    @if (playerCount === 4) {
+                    @if (playerCount() === 4) {
                     <li>
                       {{ t("further-steps-step23") }}
                     </li>
@@ -171,17 +171,17 @@
                   <li>
                     5. {{ t("further-steps-step5") }}
                     <ul class="list-disc pl-8 text-gray-400">
-                      @if (playerCount === 2) {
+                      @if (playerCount() === 2) {
                       <li>
                         {{ t("further-steps-step51") }}
                       </li>
                       }
-                      @if (playerCount === 3) {
+                      @if (playerCount() === 3) {
                       <li>
                         {{ t("further-steps-step52") }}
                       </li>
                       }
-                      @if (playerCount === 4) {
+                      @if (playerCount() === 4) {
                       <li>
                         {{ t("further-steps-step53") }}
                       </li>
@@ -195,17 +195,17 @@
                   <li>
                     8. {{ t("further-steps-step8") }}
                     <ul class="list-disc pl-8 text-gray-400">
-                      @if (playerCount === 2) {
+                      @if (playerCount() === 2) {
                       <li>
                         {{ t("further-steps-step81") }}
                       </li>
                       }
-                      @if (playerCount === 3) {
+                      @if (playerCount() === 3) {
                       <li>
                         {{ t("further-steps-step82") }}
                       </li>
                       }
-                      @if (playerCount === 4) {
+                      @if (playerCount() === 4) {
                       <li>
                         {{ t("further-steps-step83") }}
                       </li>
@@ -228,12 +228,12 @@
                     <ul class="list-disc pl-8 text-gray-400">
                       <li>{{ t("further-steps-step111") }}</li>
                       <li>{{ t("further-steps-step112") }}</li>
-                      @if (playerCount >= 3) {
+                      @if (playerCount() >= 3) {
                       <li>
                         {{ t("further-steps-step113") }}
                       </li>
                       }
-                      @if (playerCount > 3) {
+                      @if (playerCount() > 3) {
                       <li>
                         {{ t("further-steps-step114") }}
                       </li>

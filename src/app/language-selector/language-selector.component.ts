@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, signal, afterNextRender } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
@@ -11,7 +11,6 @@ import {
 
 @Component({
   selector: 'app-language-selector',
-  standalone: true,
   imports: [
     CommonModule,
     MatButtonModule,
@@ -22,26 +21,34 @@ import {
   templateUrl: './language-selector.component.html',
   styleUrls: ['./language-selector.component.scss'],
 })
-export class LanguageSelectorComponent implements OnInit {
-  activeLang!: string;
-  availableLangs!: string[];
+export class LanguageSelectorComponent {
   private translocoService = inject(TranslocoService);
 
-  ngOnInit(): void {
-    const browserLang = `${getBrowserLang()}`;
+  activeLang = signal<string>('');
+  availableLangs = signal<ReturnType<TranslocoService['getAvailableLangs']>>([]);
 
-    this.availableLangs = this.translocoService.getAvailableLangs() as string[];
+  constructor() {
+    const browserLang = getBrowserLang();
+    const availableLangs = this.translocoService.getAvailableLangs();
+    this.availableLangs.set(availableLangs);
 
-    if (this.translocoService.isLang(browserLang)) {
-      this.activeLang = getBrowserLang()!;
-      this.translocoService.setActiveLang(this.activeLang);
+    if (browserLang && this.translocoService.isLang(browserLang)) {
+      this.activeLang.set(browserLang);
+      if (this.translocoService.getActiveLang() !== browserLang) {
+        afterNextRender(() => {
+          this.translocoService.setActiveLang(browserLang);
+        });
+      }
     } else {
-      this.activeLang = this.translocoService.getDefaultLang()!;
+      const defaultLang = this.translocoService.getDefaultLang();
+      this.activeLang.set(defaultLang);
     }
   }
 
-  changeLanguage(lang: string): void {
-    this.translocoService.setActiveLang(lang);
-    this.activeLang = this.translocoService.getActiveLang()!;
+  changeLanguage(lang: string | unknown): void {
+    if (typeof lang === 'string') {
+      this.translocoService.setActiveLang(lang);
+      this.activeLang.set(this.translocoService.getActiveLang());
+    }
   }
 }

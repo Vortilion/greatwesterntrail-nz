@@ -1,6 +1,7 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, OnInit, inject } from '@angular/core';
-import { ApplicationConfigService } from '../shared/application-config.service';
+import { Component, inject, signal } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { GwtNzConfigService } from '../shared/gwt-nz-config.service';
 import { Tile } from '../models/tile.model';
 import { StorageMap } from '@ngx-pwa/local-storage';
 import { PlayerCountOption } from '../models/player-count-option.model';
@@ -14,6 +15,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { TranslocoDirective } from '@jsverse/transloco';
 import { PageHeaderComponent } from '../page-header/page-header.component';
 import { PageFooterComponent } from '../page-footer/page-footer.component';
+import { firstValueFrom, map } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -32,90 +34,71 @@ import { PageFooterComponent } from '../page-footer/page-footer.component';
     PageFooterComponent,
   ],
 })
-export class HomeComponent implements OnInit {
-  randomNeutralBuildings!: Tile[];
-  randomPlayerBuildings!: Tile[];
-  randomHarborMasters!: Tile[];
-  playerCount!: number;
-  playerCountList!: PlayerCountOption[];
-  randomDeckbuildingModules!: string[];
-  isXSmall!: boolean;
-  isMax1280!: boolean;
+export class HomeComponent {
+  readonly randomNeutralBuildings = signal<Tile[]>([]);
+  readonly randomPlayerBuildings = signal<Tile[]>([]);
+  readonly randomHarborMasters = signal<Tile[]>([]);
+  readonly randomDeckbuildingModules = signal<string[]>([]);
+  readonly playerCountList: PlayerCountOption[] = [
+    {
+      label: '2',
+      value: 2,
+    },
+    {
+      label: '3',
+      value: 3,
+    },
+    {
+      label: '4',
+      value: 4,
+    },
+  ];
 
-  private readonly applicationConfigService = inject(ApplicationConfigService);
+  private readonly gwtNzConfigService = inject(GwtNzConfigService);
   private readonly responsive = inject(BreakpointObserver);
   private readonly storage = inject(StorageMap);
+  readonly playerCount = this.gwtNzConfigService.playerCount;
+  readonly isXSmall = toSignal(
+    this.responsive.observe(Breakpoints.XSmall).pipe(map((result) => result.matches)),
+    { initialValue: false }
+  );
+  readonly isMax1280 = toSignal(
+    this.responsive.observe('(max-width: 1280px)').pipe(map((result) => result.matches)),
+    { initialValue: false }
+  );
 
-  ngOnInit(): void {
-    this.playerCount = 2;
-    this.playerCountList = [
-      {
-        label: '2',
-        value: 2,
-      },
-      {
-        label: '3',
-        value: 3,
-      },
-      {
-        label: '4',
-        value: 4,
-      },
-    ];
-
-    this.responsive.observe(Breakpoints.XSmall).subscribe((result) => {
-      if (result.matches) {
-        this.isXSmall = true;
-      } else {
-        this.isXSmall = false;
-      }
-    });
-
-    this.responsive.observe('(max-width: 1280px)').subscribe((result) => {
-      if (result.matches) {
-        this.isMax1280 = true;
-      } else {
-        this.isMax1280 = false;
-      }
-    });
-
-    this.storage.get('rar-playerCount').subscribe((playerCount) => {
-      if (playerCount && typeof playerCount === 'number') {
-        this.emitPlayerCount(playerCount);
-      } else {
-        this.storage.set('rar-playerCount', 2).subscribe();
-      }
-    });
-
-    this.applicationConfigService.playerCount.subscribe(
-      (playerCount: number) => {
-        this.playerCount = playerCount;
-      }
-    );
+  constructor() {
+    void this.initializePlayerCount();
 
     this.randomizeSetup();
   }
 
-  emitPlayerCount(playerCount: number) {
-    this.applicationConfigService.playerCount.emit(playerCount);
+  private async initializePlayerCount(): Promise<void> {
+    const persistedPlayerCount = await firstValueFrom(this.storage.get('rar-playerCount'));
+
+    if (typeof persistedPlayerCount === 'number') {
+      this.gwtNzConfigService.setPlayerCount(persistedPlayerCount);
+      return;
+    }
+
+    this.gwtNzConfigService.setPlayerCount(2);
+    await firstValueFrom(this.storage.set('rar-playerCount', 2));
   }
 
-  onPlayerCountChange(event: MatSelectChange) {
-    this.storage.set('rar-playerCount', event.value).subscribe();
-    this.emitPlayerCount(event.value);
+  async onPlayerCountChange(event: MatSelectChange): Promise<void> {
+    const playerCount = Number(event.value);
+
+    this.gwtNzConfigService.setPlayerCount(playerCount);
+    await firstValueFrom(this.storage.set('rar-playerCount', playerCount));
   }
 
-  randomizeSetup() {
-    this.randomNeutralBuildings =
-      this.applicationConfigService.getRandomNeutralBuildingOrder();
+  randomizeSetup(): void {
+    this.randomNeutralBuildings.set(this.gwtNzConfigService.getRandomNeutralBuildingOrder());
 
-    this.randomHarborMasters =
-      this.applicationConfigService.getRandomHarborMasters();
+    this.randomHarborMasters.set(this.gwtNzConfigService.getRandomHarborMasters());
 
-    this.randomDeckbuildingModules =
-      this.applicationConfigService.getRandomDeckbuildingModules();
+    this.randomDeckbuildingModules.set(this.gwtNzConfigService.getRandomDeckbuildingModules());
 
-    this.randomPlayerBuildings =
-      this.applicationConfigService.getRandomPlayerBuildings();
+    this.randomPlayerBuildings.set(this.gwtNzConfigService.getRandomPlayerBuildings());
   }
 }
