@@ -25,7 +25,7 @@
               [value]="playerCount()"
               (selectionChange)="onPlayerCountChange($event)"
             >
-              @for (playerCountOption of playerCountList; track playerCountOption.value) {
+              @for (playerCountOption of playerCountList(); track playerCountOption.value) {
                 <mat-option [value]="playerCountOption.value">
                   {{ playerCountOption.label }} <span>{{ t("players-label") }}</span>
                 </mat-option>

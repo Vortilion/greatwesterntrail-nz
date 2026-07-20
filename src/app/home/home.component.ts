@@ -47,7 +47,7 @@ export class HomeComponent {
   private readonly _randomDeckbuildingModules = signal<string[]>([]);
   readonly randomDeckbuildingModules = this._randomDeckbuildingModules.asReadonly();
 
-  readonly playerCountList: PlayerCountOption[] = [
+  readonly playerCountList = signal<PlayerCountOption[]>([
     {
       label: '2',
       value: 2,
@@ -60,7 +60,7 @@ export class HomeComponent {
       label: '4',
       value: 4,
     },
-  ];
+  ]);
 
   private readonly gwtNzConfigService = inject(GwtNzConfigService);
   private readonly responsive = inject(BreakpointObserver);
